@@ -71,10 +71,7 @@
           type: 'selectbox',
           name: 'size',
           label: 'Target Screen',
-          items: [{
-              text: 'X Large >= 1200px',
-              value: '-xl'
-            },
+          items: [
             {
               text: 'Large >= 992px',
               value: '-lg'
@@ -84,12 +81,12 @@
               value: '-md'
             },
             {
-              text: 'Small >= 576px',
+              text: 'Small >= 500px',
               value: '-sm'
             },
             {
-              text: 'X Small < 576px',
-              value: ''
+              text: 'X Small < 500px',
+              value: '-xs'
             },
           ],
         },
