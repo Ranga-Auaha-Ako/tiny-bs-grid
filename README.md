@@ -1,95 +1,69 @@
-# tiny-bs-grid 
-This plugin enables users to create or update Bootstrap (v3, v4) grid system within TinyMCE (v4, v5) editor. 
+# Canvas TinyMCE Grid plugin
 
-There are 4 versions of this plugin customized for different combinations of TinyMCE (v4 or v5) and Bootstrap (v3 or v4).
-## Demos
-- Create a bootstrap grid system
+This plugin enables users to create or update responsive grids within Canvas's TinyMCE (v5) editor.
 
-![alt text](https://github.com/jeffhehe/tiny-bs-grid/blob/master/demos/Create_BS_Grids.gif?raw=true "Create a Bootstrap grid system")
+## Testing
 
-- Update an existing bootstrap grid system while maintaining the contents
+If you'd like to use this plugin but don't want to install it on your Canvas installation, you can use the userscript above. To do this, you'll need to make sure you have [Tampermonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Tampermonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) installed. Once you've done that, click on the link in the header to install the script and activate on any domains that are on a "https://canvas.*/" url (eg canvas.auckland.ac.nz). Feel free to change this URL on your version of the script so that it works on your install as needed. Line 5 of the userscript has this url setting.
 
-![alt text](https://github.com/jeffhehe/tiny-bs-grid/blob/master/demos/Update_BS_Grids.gif?raw=true "Update an existing Bootstrap grid system")
+## Limitations
 
-- Delete a bootstrap grid system while maintaining the contents
-
-![alt text](https://github.com/jeffhehe/tiny-bs-grid/blob/master/demos/Delete_BS_Grids.gif?raw=true "Delete a bootstrap grid system")
-
-## Limitation
-This plugin only creates or updates simple Bootstrap grids. Nested grids or mulitiple target screen grids are not supported. 
-
-## Project Folders
-- demo
-    - Tiny4BS3.html (demo configuration of using this plugin for TinyMCE V4 and Bootstrap 3)
-    - Tiny4BS4.html (demo configuration of using this plugin for TinyMCE V4 and Bootstrap 4)
-    - Tiny5BS3.html (demo configuration of using this plugin for TinyMCE V5 and Bootstrap 3)
-    - Tiny5BS4.html (demo configuration of using this plugin for TinyMCE V5 and Bootstrap 4)
--plugins
-    - TinyMCE4
-        - bootstrap3grid (TinyMCE4 plugin to create Bootstrap3 grid system)
-        - bootstrap4grid (TinyMCE4 plugin to create Bootstrap4 grid system)
-    - TinyMCE5
-        - bootstrap3grid (TinyMCE5 plugin to create Bootstrap3 grid system)
-        - bootstrap4grid (TinyMCE5 plugin to create Bootstrap4 grid system)
+This plugin only creates or updates simple grids. Nested grids or mulitiple target screen grids are not supported.
 
 ## Installation
+
+### _Note: these instructions are mostly copied from the original repository, and are not ready to use yet. For now, only install using a userscript like the one provided above._
+
 1. Using TinyMCE CDN
-    1. Select the plugin for your environment, for example if you have TinyMCE v4.* and you would like to create Bootstrap3 grid, select the folder plugins/TinyMCE4/bootstrap3grid.
-    2. Copy the plugin folder and paste it into the application folder.
-    3. Initialized the editor with following configurations (please check demos)
-    
-    
-     ```javascript
-     tinyMCE.init({
-            selector: "textarea",
-            external_plugins: {
-                'bootstrap3grid': '/plugins/TinyMCE4/bootstrap3grid/plugin.min.js' //local path to plugin.min.js file
-            },
-            theme: 'modern',
-            plugins: [
-                ... ' bootstrap3grid'
-            ],
-            toolbar: ... 'bootstrap3grid',
-            content_css: [
-                'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' 
-            ],
-        });
-     ```
+
+   1. Copy the plugin and paste it into your application folder.
+   2. Initialized the editor with following configurations (please check demos)
+
+   ```javascript
+   tinyMCE.init({
+          selector: "textarea",
+          external_plugins: {
+              'canvasgrid': 'https://ranga-auaha-ako.github.io/tiny-canvas-grid/src/plugin.js' //local path to plugin.min.js file
+          },
+          theme: 'modern',
+          plugins: [
+              ... ' canvasgrid'
+          ],
+          toolbar: ... 'canvasgrid'
+      });
+   ```
+
 2. Using TinyMC locally
-    1. Select the plugin for your environment, for example if you have TinyMCE v5.* and you would like to create Bootstrap4 grid, select the folder plugins/TinyMCE5/bootstrap4grid.
-    2. Copy the plugin folder and paste it into the tinymce/plugins/ folder along with other tinymce official plugins in the application.
-    3. Initialized the editor with following configurations:
-    
-    
-     ```javascript
-          tinyMCE.init({
-            selector: "textarea",
-            theme: 'modern',
-            plugins: [
-                ... ' bootstrap4grid'
-            ],
-            toolbar: ... 'bootstrap4grid',
-            content_css: [
-                'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' 
-            ],
-        });
-     ```
-## Dependancies
-1. TinyMCE 4+
-2. Bootstrap 3+
-3. jQuery 3 +
+
+   1. Copy the plugin folder and paste it into the tinymce/plugins/ folder along with other tinymce official plugins in the application.
+   2. Initialized the editor with following configurations:
+
+   ```javascript
+        tinyMCE.init({
+          selector: "textarea",
+          theme: 'modern',
+          plugins: [
+              ... ' canvasgrid'
+          ],
+          toolbar: ... 'canvasgrid'
+      });
+   ```
 
 ## Chnage Log
-- V0.1 Initial Commit - Mar 29, 2019
-- V0.2 Enhancements & Bug fixes - April 9, 2019
-    - Update the CSS styles to show grid borders only in Edit mode
-    - Update the CSS styles to automatically show the grid width label in Edit mode
-    - Disable the resize handler in IE11
-    - Update the JS files to not show static width info in text
-    - Update the function in JS files to detect the grid classes
-    - Fix the demo/Tiny5BS4.html ending title tag typo
+
+- V1.1 Canvas Support - November 23, 2021
+  - Forked for Canvas LMS support
 - V0.3 Enhancement - April 24, 2019
-    - Enable users to remove bootstrap grid system while maintain the same contents
+  - Enable users to remove bootstrap grid system while maintain the same contents
+- V0.2 Enhancements & Bug fixes - April 9, 2019
+  - Update the CSS styles to show grid borders only in Edit mode
+  - Update the CSS styles to automatically show the grid width label in Edit mode
+  - Disable the resize handler in IE11
+  - Update the JS files to not show static width info in text
+  - Update the function in JS files to detect the grid classes
+  - Fix the demo/Tiny5BS4.html ending title tag typo
+- V0.1 Initial Commit - Mar 29, 2019
 
 ## Credits:
-This project was inspired and modified from tiny-grid https://github.com/aaroniker/tiny-grid author: Aaron Iker.
+
+This project was inspired and modified from [tiny-bs-bgrid](https://github.com/jeffhehe/tiny-bs-grid) authored by Jeff Wang, which itself was inspired and modified from [tiny-grid](https://github.com/aaroniker/tiny-grid) authored by Aaron Iker.
