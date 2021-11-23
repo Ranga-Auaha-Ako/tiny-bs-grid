@@ -2,6 +2,27 @@
 
 This plugin enables users to create or update responsive grids within Canvas's TinyMCE (v5) editor.
 
+<figure>
+    <img src="demos/Update_Grids.gif?raw=true" alt="Example of creating a grid"/>
+    <figcaption>Example of creating a grid</figcaption>
+</figure>
+<table border="0">
+ <tr>
+    <td>
+        <figure>
+            <img src="demos/Update_Grids.gif?raw=true" alt="Example of updating a grid"/>
+            <figcaption>Example of updating a grid</figcaption>
+        </figure>
+    </td>
+    <td>
+        <figure>
+            <img src="demos/Delete_Grids.gif?raw=true" alt="Example of deleting a grid"/>
+            <figcaption>Example of deleting a grid</figcaption>
+        </figure>
+    </td>
+ </tr>
+</table>
+
 ## Testing
 
 If you'd like to use this plugin but don't want to install it on your Canvas installation, you can use the userscript above. To do this, you'll need to make sure you have [Tampermonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Tampermonkey for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/) installed. Once you've done that, click on the link in the header to install the script and activate on any domains that are on a "https://canvas.*/" url (eg canvas.auckland.ac.nz). Feel free to change this URL on your version of the script so that it works on your install as needed. Line 5 of the userscript has this url setting.
