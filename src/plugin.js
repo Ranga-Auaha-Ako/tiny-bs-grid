@@ -163,11 +163,11 @@
               items: mainPanelItems
             },
             {
-              title: 'Remove Grids',
+              title: 'Remove this Grid',
               items: [{
                 type: 'checkbox',
                 name: 'removeGrids',
-                label: 'Remove Grids',
+                label: 'Remove this Grid',
               }]
             }
           ]
