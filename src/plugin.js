@@ -274,7 +274,7 @@
           if (editMode) {
             jQuery(parentDOMS).replaceWith(leadingHtml + '<div class="grid-row">' + htmlContents + '</div>' + endingHtml);
           } else {
-            editor.insertContent(leadingHtml + 'Inserted grid:<div class="grid-row">' + htmlContents + '</div>' + endingHtml);
+            editor.insertContent(leadingHtml + '<div class="grid-row">' + htmlContents + '</div>' + endingHtml);
           }
           e.close();
         }
