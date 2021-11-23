@@ -7,28 +7,28 @@
  */
 
 (function () {
-  tinymce.PluginManager.add('bootstrap4grid', bootstrap4GridPlugin);
+  tinymce.PluginManager.add('canvasgrid', canvasGridPlugin);
 
-  function bootstrap4GridPlugin(editor, url) {
-    editor.contentCSS.push(url + '/bootstrapgrid-style.css');
+  function canvasGridPlugin(editor, url) {
+    editor.contentCSS.push(url + '/canvasgrid-style.css');
 
-    editor.ui.registry.addToggleButton('bootstrap4grid', {
-      text: 'BS4 Grid',
-      tooltip: 'Bootstrap4 Grid System',
+    editor.ui.registry.addToggleButton('canvasgrid', {
+      text: 'Grid',
+      tooltip: 'Canvas Grid System',
       onAction: Tinymce_bs4_grid,
       onSetup: function (api) {
-        editor.selection.selectorChanged('div.row', function (state) {
+        editor.selection.selectorChanged('div.grid-row', function (state) {
           api.setActive(state);
         });
       }
     });
 
     function Tinymce_bs4_grid() {
-      var dialogueTitle = 'Insert Bootstrap4 Grids';
+      var dialogueTitle = 'Insert canvas Grids';
       var columnValue = '12';
       var screenSize = '-md';
       var node = editor.selection.getNode();
-      var parentDOMS = jQuery(node).parents('div.row');
+      var parentDOMS = jQuery(node).parents('div.grid-row');
       var editMode = parentDOMS.length > 0;
       if (editMode) {
         var parentRow = parentDOMS[0];
@@ -64,7 +64,7 @@
             }
           }
         }
-        dialogueTitle = 'Update/Remove Bootstrap4 Grids';
+        dialogueTitle = 'Update/Remove Canvas Grids';
       }
 
       var mainPanelItems = [{
@@ -159,15 +159,15 @@
         panelBody = {
           type: 'tabpanel',
           tabs: [{
-              title: 'Update Bootstrap Grids',
+              title: 'Update Grids',
               items: mainPanelItems
             },
             {
-              title: 'Remove Bootstrap Grids',
+              title: 'Remove Grids',
               items: [{
                 type: 'checkbox',
                 name: 'removeGrids',
-                label: 'Remove Bootstrap Grids',
+                label: 'Remove Grids',
               }]
             }
           ]
@@ -272,9 +272,9 @@
               break;
           }
           if (editMode) {
-            jQuery(parentDOMS).replaceWith(leadingHtml + '<div class="row">' + htmlContents + '</div>' + endingHtml);
+            jQuery(parentDOMS).replaceWith(leadingHtml + '<div class="grid-row">' + htmlContents + '</div>' + endingHtml);
           } else {
-            editor.insertContent(leadingHtml + '<div class="row">' + htmlContents + '</div>' + endingHtml);
+            editor.insertContent(leadingHtml + 'Inserted grid:<div class="grid-row">' + htmlContents + '</div>' + endingHtml);
           }
           e.close();
         }
