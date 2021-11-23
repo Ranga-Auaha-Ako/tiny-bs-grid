@@ -1,0 +1,6 @@
+theme: jekyll-theme-cayman
+title: Canvas TinyMCE Grid plugin
+description: A small TinyMCE plugin to add easy to use grid functionality to Canvas's Rich Text Editor.
+show_downloads: false
+# github:
+#   zip_url: https://github.com/uoa-compsci399-s2-2021/crowd-captions/releases/latest
